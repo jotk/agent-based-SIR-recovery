@@ -1,4 +1,4 @@
-# agent-based-SIR-recovery
+# Agent Based SIR Recovery
 
 Elements of project:
 - NetLogo simulation
