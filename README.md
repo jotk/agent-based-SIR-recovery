@@ -8,6 +8,7 @@ Elements of project:
   - Watch videos in book abt SINDY
   - https://www.youtube.com/watch?v=gSCa78TIldg
 - If we increase infectiousness in simulation, SINDY should show beta be higher
+  - lambda determines how many close to zero terms you can tolerate 
 
 Goals:
 - Apr 1 - NetLogo Data recieved
