@@ -3,6 +3,7 @@
 Elements of project:
 - NetLogo simulation
   - Look at one already, make improvements
+  - http://modelingcommons.org/browse/one_model/6277#model_tabs_browse_nlw
   - Download CSV data
 - Use data to derive SIR model: http://databookuw.com/databook.pdf page 290
   - Watch videos in book abt SINDY
