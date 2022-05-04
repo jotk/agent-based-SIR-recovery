@@ -45,10 +45,11 @@ to setup-people
 
     set shape "person"
     set color white
+    set size 0.5
 
     ;; Set the recovery time for each agent to fall on a
     ;; normal distribution around average recovery time
-    set recovery-time random-normal average-recovery-time average-recovery-time / 4
+    set recovery-time random-normal average-recovery-time average-recovery-time / 3
 
     ;; make sure it lies between 0 and 2x average-recovery-time
     if recovery-time > average-recovery-time * 2 [
@@ -58,7 +59,7 @@ to setup-people
 
     ;; Each individual has a 5% chance of starting out infected.
     ;; To mimic true KM conditions use "ask one-of turtles" instead.
-    if (random-float 100 < 5)
+    if (random-float 100 < 2)
     [
       set infected? true
       set susceptible? false
@@ -109,7 +110,7 @@ end
 ;; People move about at random.
 to move  ;; turtle procedure
   rt random-float 360
-  fd 1
+  fd 15
 end
 
 to clear-count
@@ -197,18 +198,19 @@ end
 
 to export
   export-plot "Populations" "sir_output.csv"
+  export-plot "Infection and Recovery Rates" "beta_gamma_output.csv"
 end
 ; Copyright 2011 Uri Wilensky.
 ; See Info tab for full copyright and license.
 @#$#@#$#@
 GRAPHICS-WINDOW
-644
-13
-1102
-472
+652
+25
+1435
+809
 -1
 -1
-18.0
+25.0
 1
 10
 1
@@ -218,10 +220,10 @@ GRAPHICS-WINDOW
 1
 1
 1
--12
-12
--12
-12
+-15
+15
+-15
+15
 1
 1
 1
@@ -270,9 +272,9 @@ SLIDER
 initial-people
 initial-people
 50
-400
-160.0
-5
+1200
+1000.0
+10
 1
 NIL
 HORIZONTAL
@@ -313,8 +315,8 @@ true
 true
 "" ""
 PENS
-"Infection Rate" 1.0 0 -2674135 true "" "plot (beta-n * nb-infected-previous)"
-"Recovery Rate" 1.0 0 -10899396 true "" "plot (gamma * nb-infected-previous)"
+"Infection Rate" 1.0 0 -2674135 true "" "plot (beta-n)"
+"Recovery Rate" 1.0 0 -10899396 true "" "plot (gamma)"
 
 SLIDER
 46
@@ -323,10 +325,10 @@ SLIDER
 93
 infection-chance
 infection-chance
-10
+1
 100
-30.0
-5
+20.0
+1
 1
 NIL
 HORIZONTAL
@@ -372,18 +374,18 @@ SLIDER
 90
 average-recovery-time
 average-recovery-time
-50
-300
-50.0
-10
+1
+20
+6.0
+1
 1
 NIL
 HORIZONTAL
 
 MONITOR
-427
+372
 352
-506
+451
 397
 R0
 r0
@@ -407,6 +409,28 @@ NIL
 NIL
 NIL
 1
+
+MONITOR
+516
+388
+573
+433
+gamma
+gamma
+17
+1
+11
+
+MONITOR
+515
+322
+572
+367
+beta
+beta-n
+17
+1
+11
 
 @#$#@#$#@
 ## WHAT IS IT?
